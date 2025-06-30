@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Restaurant Ayam Pak Gembus</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-red': '#D9230F',
+                        'secondary-orange': '#FF6347',
+                        'dark-gray': '#333333',
+                        'light-gray': '#F5F5F5',
+                        'gold-accent': '#FFD700',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-inter bg-light-gray text-dark-gray">
+
+    <!-- Header Section -->
+    <header class="bg-primary-red text-white p-4 shadow-lg w-full z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="text-3xl font-bold mb-2 md:mb-0">
+                <a href="index.html" class="hover:text-gold-accent transition duration-300">
+                    <span class="text-gold-accent">Ayam Pak Gembus</span>
+                </a>
+            </div>
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-lg">
+                    <li><a href="index.html" class="hover:text-gold-accent transition duration-300">Beranda</a></li>
+                    <li><a href="about.html" class="hover:text-gold-accent transition duration-300 font-bold">Tentang Kami</a></li>
+                    <li><a href="menu.html" class="hover:text-gold-accent transition duration-300">Menu</a></li>
+                    <li><a href="chefs.html" class="hover:text-gold-accent transition duration-300">Tim Koki</a></li>
+                    <li><a href="reservation.html" class="hover:text-gold-accent transition duration-300">Reservasi Meja</a></li>
+                    <li><a href="testimonials.html" class="hover:text-gold-accent transition duration-300">Pengalaman Pengunjung</a></li>
+                    <li><a href="contact.html" class="hover:text-gold-accent transition duration-300">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white min-h-screen">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-primary-red mb-12">Tentang Kami: Kisah & Tujuan</h2>
+            <div class="md:flex md:space-x-8 items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="https://placehold.co/600x400/FFD700/D9230F?text=Ilustrasi+Pak+Gembus" alt="Ilustrasi Pak Gembus" class="rounded-lg shadow-lg mx-auto w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-3xl font-semibold text-dark-gray mb-4">Akar Sejati Restaurant Pak Gembus</h3>
+                    <p class="text-lg leading-relaxed mb-4">
+                        Restoran Pak Gembus didirikan sebagai penghormatan kepada Pak Gembus, seorang koki legendaris yang menghilang, meninggalkan resep ayam goreng dan sambal ajaibnya. Bertahun-tahun kemudian, cucunya, Arif, menemukan kembali resep dan filosofi kakeknya yang berpusat pada kesabaran dan keikhlasan dalam memasak.
+                    </p>
+                    <h3 class="text-3xl font-semibold text-dark-gray mb-4 mt-8">Tujuan Mulia Kami</h3>
+                    <ul class="list-disc list-inside text-lg leading-relaxed space-y-2">
+                        <li>
+                            <span class="font-bold text-primary-red">Melestarikan "Resep Jiwa" Pak Gembus:</span> Restoran ini berkomitmen untuk menjaga keaslian rasa dan filosofi memasak Pak Gembus, memastikan setiap hidangan disajikan dengan dedikasi dan cinta, seperti yang diajarkan sang kakek.
+                        </li>
+                        <li>
+                            <span class="font-bold text-primary-red">Menjadi Pusat Pertemuan dan Cerita:</span> Lebih dari sekadar tempat makan, Restoran Pak Gembus bertujuan menjadi ruang hangat bagi masyarakat untuk berbagi cerita, tawa, dan menciptakan kenangan baru, layaknya rumah kedua.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark-gray text-white py-8 text-center">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 Restaurant Ayam Pak Gembus. Semua Hak Dilindungi.</p>
+            <p class="text-sm mt-2">Dibuat dengan ❤️ untuk cita rasa Indonesia.</p>
+        </div>
+    </footer>
+
+    <!-- Link to your custom JavaScript file (for any global scripts) -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami - Restaurant Ayam Pak Gembus</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-red': '#D9230F',
+                        'secondary-orange': '#FF6347',
+                        'dark-gray': '#333333',
+                        'light-gray': '#F5F5F5',
+                        'gold-accent': '#FFD700',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-inter bg-light-gray text-dark-gray">
+
+    <!-- Header Section -->
+    <header class="bg-primary-red text-white p-4 shadow-lg w-full z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="text-3xl font-bold mb-2 md:mb-0">
+                <a href="index.html" class="hover:text-gold-accent transition duration-300">
+                    <span class="text-gold-accent">Ayam Pak Gembus</span>
+                </a>
+            </div>
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-lg">
+                    <li><a href="index.html" class="hover:text-gold-accent transition duration-300">Beranda</a></li>
+                    <li><a href="about.html" class="hover:text-gold-accent transition duration-300">Tentang Kami</a></li>
+                    <li><a href="menu.html" class="hover:text-gold-accent transition duration-300">Menu</a></li>
+                    <li><a href="chefs.html" class="hover:text-gold-accent transition duration-300">Tim Koki</a></li>
+                    <li><a href="reservation.html" class="hover:text-gold-accent transition duration-300">Reservasi Meja</a></li>
+                    <li><a href="testimonials.html" class="hover:text-gold-accent transition duration-300">Pengalaman Pengunjung</a></li>
+                    <li><a href="contact.html" class="hover:text-gold-accent transition duration-300 font-bold">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-light-gray min-h-screen">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-primary-red mb-8">Hubungi Kami</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="info-card p-6 rounded-lg shadow-md bg-white flex flex-col items-center justify-center">
+                    <i class="fas fa-map-marker-alt text-4xl text-secondary-orange mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-2">Alamat</h3>
+                    <p class="text-lg">Wisma Lidah Kulon Blok F19</p>
+                </div>
+                <div class="info-card p-6 rounded-lg shadow-md bg-white flex flex-col items-center justify-center">
+                    <i class="fas fa-envelope text-4xl text-secondary-orange mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-2">Email</h3>
+                    <p class="text-lg"><a href="mailto:dyasvasi@gmail.com" class="text-dark-gray hover:text-primary-red transition duration-300">dyasvasi@gmail.com</a></p>
+                </div>
+                <div class="info-card p-6 rounded-lg shadow-md bg-white flex flex-col items-center justify-center">
+                    <i class="fas fa-phone-alt text-4xl text-secondary-orange mb-4"></i>
+                    <h3 class="text-2xl font-semibold mb-2">Telepon</h3>
+                    <p class="text-lg"><a href="tel:+6281216516134" class="text-dark-gray hover:text-primary-red transition duration-300">081216516134</a></p>
+                </div>
+            </div>
+            <div class="mt-12">
+                <h3 class="text-2xl font-semibold mb-2">Jam Operasional</h3>
+                <p class="text-xl bg-secondary-orange text-white inline-block px-6 py-2 rounded-full shadow-md">
+                    Setiap Hari: <span class="font-bold">10.00 - 22.00 WIB</span>
+                </p>
+            </div>
+             <!-- Google Maps Section -->
+            <h2 class="text-4xl font-bold text-center text-primary-red mt-16 mb-12">Peta Lokasi</h2>
+            <div class="relative w-full h-96 rounded-lg shadow-lg overflow-hidden border-2 border-primary-red">
+                <!-- Google Maps Embed: Replace with your actual Google Maps embed code -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5188686150247!2d112.66854581477541!3d-7.807897994371946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb7e217c4e51%3A0x6b2e3e5c9f5f0b5d!2sWisma%20Lidah%20Kulon%20Blok%20F19%2C%20Surabaya!5e0!3m2!1sen!2sid!4v1678901234567!5m2!1sen!2sid"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark-gray text-white py-8 text-center mt-auto">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 Restaurant Ayam Pak Gembus. Semua Hak Dilindungi.</p>
+            <p class="text-sm mt-2">Dibuat dengan ❤️ untuk cita rasa Indonesia.</p>
+        </div>
+    </footer>
+
+    <!-- Link to your custom JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

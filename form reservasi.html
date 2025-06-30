@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi Meja - Restaurant Ayam Pak Gembus</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind CSS configuration (for custom colors and fonts)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-red': '#D9230F',
+                        'secondary-orange': '#FF6347',
+                        'dark-gray': '#333333',
+                        'light-gray': '#F5F5F5',
+                        'gold-accent': '#FFD700',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom styles not easily covered by Tailwind, from style.css */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Specific styles for this page if needed */
+        .reservation-page-bg {
+            background-image: url('https://placehold.co/1920x1080/FF6347/FFFFFF?text=Reservasi+Meja+Ayam+Pak+Gembus'); /* Optional: a different background image for reservation page */
+            background-size: cover;
+            background-position: center;
+        }
+        .form-overlay {
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white overlay for form */
+        }
+    </style>
+</head>
+<body class="font-inter bg-light-gray text-dark-gray">
+
+    <!-- Header Section (can be simplified or full for consistency) -->
+    <header class="bg-primary-red text-white p-4 shadow-lg w-full z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="text-3xl font-bold mb-2 md:mb-0">
+                <!-- Links back to index.html will not work in this single-file preview -->
+                <span class="text-gold-accent">Ayam Pak Gembus</span>
+            </div>
+            <nav>
+                <ul class="flex flex-wrap justify-center space-x-4 md:space-x-6 text-lg">
+                    <li><a href="#" class="hover:text-gold-accent transition duration-300">Beranda (Preview Only)</a></li>
+                    <li><a href="#" class="hover:text-gold-accent transition duration-300">Tentang Kami</a></li>
+                    <li><a href="#" class="hover:text-gold-accent transition duration-300">Menu</a></li>
+                    <li><a href="#" class="hover:text-gold-accent transition duration-300">Tim Koki</a></li>
+                    <li><a href="#reservation" class="hover:text-gold-accent transition duration-300 font-bold">Reservasi Meja</a></li>
+                    <li><a href="#" class="hover:text-gold-accent transition duration-300">Pengalaman Pengunjung</a></li>
+                    <li><a href="#" class="hover:text-gold-accent transition duration-300">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Table Reservation Section -->
+    <section id="reservation" class="py-16 bg-light-gray min-h-screen flex items-center justify-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-primary-red mb-12">Reservasi Meja</h2>
+            <div class="bg-white p-8 rounded-lg shadow-lg max-w-2xl mx-auto form-overlay">
+                <p class="text-center text-lg mb-6">
+                    Ingin memastikan tempat duduk di Restaurant Ayam Pak Gembus? Isi formulir reservasi di bawah ini!
+                </p>
+                <form id="reservationForm" class="space-y-4">
+                    <div>
+                        <label for="reservasi-nama" class="block text-dark-gray font-semibold mb-1">Nama Lengkap Pelanggan <span class="text-primary-red">*</span></label>
+                        <input type="text" id="reservasi-nama" name="reservasi_nama" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-red focus:border-transparent" placeholder="Nama lengkap Anda" required>
+                    </div>
+                    <div>
+                        <label for="reservasi-telepon" class="block text-dark-gray font-semibold mb-1">Nomor Telepon Pelanggan <span class="text-primary-red">*</span></label>
+                        <input type="tel" id="reservasi-telepon" name="reservasi_telepon" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-red focus:border-transparent" placeholder="Contoh: 081234567890" required>
+                    </div>
+                    <div>
+                        <label for="reservasi-tanggal" class="block text-dark-gray font-semibold mb-1">Tanggal Reservasi <span class="text-primary-red">*</span></label>
+                        <input type="date" id="reservasi-tanggal" name="reservasi_tanggal" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-red focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label for="reservasi-waktu" class="block text-dark-gray font-semibold mb-1">Waktu Reservasi <span class="text-primary-red">*</span></label>
+                        <input type="time" id="reservasi-waktu" name="reservasi_waktu" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-red focus:border-transparent" required>
+                    </div>
+                    <div>
+                        <label for="reservasi-jumlah-orang" class="block text-dark-gray font-semibold mb-1">Jumlah Tamu <span class="text-primary-red">*</span></label>
+                        <input type="number" id="reservasi-jumlah-orang" name="reservasi_jumlah_orang" min="1" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-red focus:border-transparent" placeholder="Jumlah orang" required>
+                    </div>
+
+                    <!-- Makanan yang Dipesan Section (Shopee Food style) -->
+                    <div class="space-y-4 pt-6 border-t border-gray-200">
+                        <h3 class="text-2xl font-bold text-secondary-orange border-b pb-2 mb-4">Pesan Makanan untuk Reservasi (Opsional)</h3>
+
+                        <!-- Makanan Utama -->
+                        <h4 class="text-xl font-semibold text-dark-gray mb-2">Makanan Utama</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-center justify-between p-3 bg-light-gray rounded-md shadow-sm">
+                                <span class="text-lg">Ayam Goreng (Rp 10.000)</span>
+                                <input type="number" min="0" value="0" data-price="10000" data-item="Ayam Goreng" class="reservasi-item-qty w-20 p-2 border border-gray-300 rounded-md text-center focus:ring-primary-red focus:border-transparent">
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-light-gray rounded-md shadow-sm">
+                                <span class="text-lg">Nasi Goreng (Rp 11.000)</span>
+                                <input type="number" min="0" value="0" data-price="11000" data-item="Nasi Goreng" class="reservasi-item-qty w-20 p-2 border border-gray-300 rounded-md text-center focus:ring-primary-red focus:border-transparent">
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-light-gray rounded-md shadow-sm">
+                                <span class="text-lg">Bebek Goreng (Rp 12.000)</span>
+                                <input type="number" min="0" value="0" data-price="12000" data-item="Bebek Goreng" class="reservasi-item-qty w-20 p-2 border border-gray-300 rounded-md text-center focus:ring-primary-red focus:border-transparent">
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-light-gray rounded-md shadow-sm">
+                                <span class="text-lg">Bakso (Rp 15.000)</span>
+                                <input type="number" min="0" value="0" data-price="15000" data-item="Bakso" class="reservasi-item-qty w-20 p-2 border border-gray-300 rounded-md text-center focus:ring-primary-red focus:border-transparent">
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-light-gray rounded-md shadow-sm">
+                                <span class="text-lg">Nasi Padang (Rp 20.000)</span>
+                                <input type="number" min="0" value="0" data-price="20000" data-item="Nasi Padang" class="reservasi-item-qty w-20 p-2 border border-gray-300 rounded-md text-center focus:ring-primary-red focus:border-transparent">
+                            </div>
+                        </div>
+
+                        <!-- Minuman Segar -->
+                        <h4 class="text-xl font-semibold text-dark-gray mt-6 mb-2">Minuman Segar</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-center justify-between p-3 bg-light-gray rounded-md shadow-sm">
+                                <span class="text-lg">Es Legen (Rp 4.000)</span>
+                                <input type="number" min="0" value="0" data-price="4000" data-item="Es Legen" class="reservasi-item-qty w-20 p-2 border border-gray-300 rounded-md text-center focus:ring-primary-red focus:border-transparent">
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-light-gray rounded-md shadow-sm">
+                                <span class="text-lg">Es Campur (Rp 5.000)</span>
+                                <input type="number" min="0" value="0" data-price="5000" data-item="Es Campur" class="reservasi-item-qty w-20 p-2 border border-gray-300 rounded-md text-center focus:ring-primary-red focus:border-transparent">
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-light-gray rounded-md shadow-sm">
+                                <span class="text-lg">Es Gudir (Rp 6.000)</span>
+                                <input type="number" min="0" value="0" data-price="6000" data-item="Es Gudir" class="reservasi-item-qty w-20 p-2 border border-gray-300 rounded-md text-center focus:ring-primary-red focus:border-transparent">
+                            </div>
+                        </div>
+
+                        <!-- Cemilan Nikmat -->
+                        <h4 class="text-xl font-semibold text-dark-gray mt-6 mb-2">Cemilan Nikmat</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-center justify-between p-3 bg-light-gray rounded-md shadow-sm">
+                                <span class="text-lg">Pisang Goreng (Rp 5.000)</span>
+                                <input type="number" min="0" value="0" data-price="5000" data-item="Pisang Goreng" class="reservasi-item-qty w-20 p-2 border border-gray-300 rounded-md text-center focus:ring-primary-red focus:border-transparent">
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-light-gray rounded-md shadow-sm">
+                                <span class="text-lg">Tahu Isi (Rp 6.000)</span>
+                                <input type="number" min="0" value="0" data-price="6000" data-item="Tahu Isi" class="reservasi-item-qty w-20 p-2 border border-gray-300 rounded-md text-center focus:ring-primary-red focus:border-transparent">
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-light-gray rounded-md shadow-sm">
+                                <span class="text-lg">Tahu Sumedang (Rp 7.000)</span>
+                                <input type="number" min="0" value="0" data-price="7000" data-item="Tahu Sumedang" class="reservasi-item-qty w-20 p-2 border border-gray-300 rounded-md text-center focus:ring-primary-red focus:border-transparent">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Price Display for Reserved Food -->
+                    <div class="mt-6 p-4 bg-gold-accent text-primary-red font-bold text-xl rounded-md shadow-md flex justify-between items-center">
+                        <span>Total Makanan Dipesan:</span>
+                        <span id="reservasiTotalPrice">Rp 0</span>
+                    </div>
+
+                    <div>
+                        <label for="reservasi-pesan" class="block text-dark-gray font-semibold mb-1">Permintaan Khusus (Opsional)</label>
+                        <textarea id="reservasi-pesan" name="reservasi_pesan" rows="3" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-red focus:border-transparent" placeholder="Tulis pesan atau permintaan khusus Anda di sini..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary-red text-white font-bold py-3 px-6 rounded-md hover:bg-secondary-orange transition duration-300 shadow-md">
+                        Kirim Reservasi
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark-gray text-white py-8 text-center mt-auto">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 Restaurant Ayam Pak Gembus. Semua Hak Dilindungi.</p>
+            <p class="text-sm mt-2">Dibuat dengan ❤️ untuk cita rasa Indonesia.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the reservation form element
+            const reservationForm = document.getElementById('reservationForm');
+
+            // Get all quantity input fields for food items within the reservation form
+            const reservasiItemQuantities = document.querySelectorAll('.reservasi-item-qty');
+
+            // Get the element where the total price for reserved food will be displayed
+            const reservasiTotalPriceElement = document.getElementById('reservasiTotalPrice');
+
+            /**
+             * Function to calculate and update the total price for pre-ordered food in reservation form.
+             */
+            function updateReservasiTotalPrice() {
+                let total = 0;
+                // Loop through each quantity input for reserved food items
+                reservasiItemQuantities.forEach(input => {
+                    const price = parseFloat(input.dataset.price); // Get the price from the 'data-price' attribute
+                    const quantity = parseInt(input.value);      // Get the quantity from the input's current value
+
+                    // Ensure price and quantity are valid numbers and quantity is positive
+                    if (!isNaN(price) && !isNaN(quantity) && quantity > 0) {
+                        total += price * quantity; // Add to the running total
+                    }
+                });
+                // Format the total price to Indonesian Rupiah and update the display element
+                reservasiTotalPriceElement.textContent = `Rp ${total.toLocaleString('id-ID')}`;
+            }
+
+            // Attach event listeners to quantity inputs if the reservation form exists
+            if (reservationForm) { // Only attach if the reservation form exists on the page
+                reservasiItemQuantities.forEach(input => {
+                    // Update total price when the input value changes (e.g., user types a number)
+                    input.addEventListener('input', updateReservasiTotalPrice);
+                    // Update total price when the input loses focus or its value is changed by arrows
+                    input.addEventListener('change', updateReservasiTotalPrice);
+                });
+                // Perform an initial calculation when the page loads
+                updateReservasiTotalPrice();
+            }
+
+
+            // Handle form submissions for all forms on the page (only reservationForm in this combined file)
+            // Note: Since this is a single file for preview, other forms from other HTML files are not present.
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent default browser form submission (page reload)
+
+                    let allRequiredFilled = true;
+                    // Check if all required fields in the current form are filled
+                    form.querySelectorAll('[required]').forEach(input => {
+                        if (!input.value.trim()) { // If a required field is empty
+                            allRequiredFilled = false;
+                            input.classList.add('border-primary-red'); // Add a red border to highlight it
+                        } else {
+                            input.classList.remove('border-primary-red'); // Remove red border if filled
+                        }
+                    });
+
+                    // If all required fields are filled, proceed with the submission logic
+                    if (allRequiredFilled) {
+                        let message = '';
+
+                        if (form.id === 'reservationForm') { // Specific logic for the reservation form
+                            let reservedFoodDetails = '';
+                            let items = [];
+                            // Collect details of pre-ordered food items
+                            reservasiItemQuantities.forEach(input => {
+                                const quantity = parseInt(input.value);
+                                if (quantity > 0) { // Only include items with a positive quantity
+                                    const itemName = input.dataset.item;
+                                    const itemPrice = parseFloat(input.dataset.price);
+                                    items.push(`${quantity}x ${itemName} (Rp ${itemPrice.toLocaleString('id-ID')})`);
+                                }
+                            });
+
+                            // Format the reserved food details for the alert message
+                            if (items.length > 0) {
+                                const reservedFoodSummary = items.join('\n- ') + `\nTotal Makanan Dipesan: ${reservasiTotalPriceElement.textContent}`;
+                                reservedFoodDetails = `\nMakanan Dipesan untuk Reservasi:\n- ${reservedFoodSummary}`;
+                            } else {
+                                reservedFoodDetails = `\nMakanan Dipesan untuk Reservasi: Tidak ada`;
+                            }
+
+                            // Construct the full reservation summary message
+                            message = `Reservasi Anda berhasil dikirim!\n\n` +
+                                      `Detail Reservasi:\n` +
+                                      `Nama: ${document.getElementById('reservasi-nama').value}\n` +
+                                      `No. Telepon: ${document.getElementById('reservasi-telepon').value}\n` +
+                                      `Tanggal: ${document.getElementById('reservasi-tanggal').value}\n` +
+                                      `Waktu: ${document.getElementById('reservasi-waktu').value}\n` +
+                                      `Jumlah Tamu: ${document.getElementById('reservasi-jumlah-orang').value}` +
+                                      reservedFoodDetails + `\n` + // Include the food details
+                                      `Permintaan Khusus: ${document.getElementById('reservasi-pesan').value || '-'}\n\n` +
+                                      `Terima kasih atas reservasi Anda! Kami akan segera menghubungi Anda untuk konfirmasi.`;
+
+                        } else {
+                            // This part of the code won't be hit in this single-file preview unless you add other forms
+                            message = `Form submitted!`;
+                        }
+
+                        // Display the confirmation message to the user
+                        alert(message + '\n\n(Catatan: Ini adalah placeholder, data tidak disimpan ke server.)');
+                        form.reset(); // Reset the form fields after successful submission
+
+                        // If it's the reservation form, reset the total price display as well
+                        if (form.id === 'reservationForm') {
+                            updateReservasiTotalPrice();
+                        }
+                    } else {
+                        // If required fields are not filled, alert the user
+                        alert('Mohon lengkapi semua kolom yang wajib diisi (ditandai dengan *) sebelum mengirim.');
+                        // Optionally, focus on the first empty required field for better UX
+                        form.querySelector('[required]:invalid')?.focus();
+                    }
+                });
+
+                // Add event listener to remove the error highlight when the user starts typing
+                form.querySelectorAll('[required]').forEach(input => {
+                    input.addEventListener('input', function() {
+                        if (this.value.trim()) {
+                            this.classList.remove('border-primary-red');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

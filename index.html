@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classy Time - Every Second, A Masterpiece</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-md py-4 px-6 fixed w-full top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center mb-4 md:mb-0">
+                <i class="fas fa-watch text-indigo-600 text-3xl mr-3"></i>
+                <h1 class="text-3xl font-bold text-indigo-800">Classy Time</h1>
+            </div>
+            <p class="text-md text-gray-600 italic mb-4 md:mb-0">"Every Second, A Masterpiece."</p>
+            <div class="flex items-center space-x-4 w-full md:w-auto">
+                <input type="text" id="search-input" placeholder="Search watches..." class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full md:w-64">
+                <button id="search-button" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition duration-300">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-24 mt-20">
+        <div class="container mx-auto text-center px-6">
+            <h2 class="text-5xl font-extrabold mb-4 leading-tight">Find Your Perfect Watch</h2>
+            <p class="text-xl mb-8">The Most Complete Collection, Best Prices, for Every Style and Occasion.</p>
+            <button class="bg-white text-indigo-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300 shadow-lg" onclick="document.getElementById('product-section').scrollIntoView({ behavior: 'smooth' });">
+                View All Collections
+            </button>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto py-12 px-6 flex flex-col lg:flex-row" id="product-section">
+        <!-- Filter and Sorting Sidebar -->
+        <aside class="w-full lg:w-1/4 pr-8 mb-8 lg:mb-0 filter-sidebar bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="text-2xl font-bold mb-6 text-indigo-800">Filter & Sort</h3>
+
+            <!-- Sorting Options -->
+            <div class="mb-6">
+                <label for="sort-by" class="block text-lg font-medium text-gray-700 mb-2">Sort By:</label>
+                <select id="sort-by" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50">
+                    <option value="terlaris">Best Sellers</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="name-asc">Product Name: A-Z</option>
+                    <option value="name-desc">Product Name: Z-A</option>
+                </select>
+            </div>
+
+            <!-- Filter Options -->
+            <div class="mb-6">
+                <h4 class="text-xl font-semibold mb-4 text-gray-800">Filter By:</h4>
+
+                <div class="mb-4">
+                    <label class="block text-md font-medium text-gray-700 mb-2">Brand:</label>
+                    <select id="filter-brand" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50">
+                        <option value="">All Brands</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-md font-medium text-gray-700 mb-2">Price:</label>
+                    <select id="filter-price" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50">
+                        <option value="">All Prices</option>
+                        <option value="0-1000000"> &lt; Rp1 Million</option>
+                        <option value="1000000-5000000">Rp1 Million - Rp5 Million</option>
+                        <option value="5000000-20000000">Rp5 Million - Rp20 Million</option>
+                        <option value="20000000-50000000">Rp20 Million - Rp50 Million</option>
+                        <option value="50000000-999999999">&gt; Rp50 Million</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-md font-medium text-gray-700 mb-2">Type:</label>
+                    <select id="filter-type" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50">
+                        <option value="">All Types</option>
+                        <option value="Olahraga">Sport Watch</option>
+                        <option value="Fashion">Fashion Watch</option>
+                        <option value="Klasik">Classic Watch</option>
+                        <option value="Anak">Kids Watch</option>
+                        <option value="Pintar">Smart Watch</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-md font-medium text-gray-700 mb-2">Color:</label>
+                    <select id="filter-color" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50">
+                        <option value="">All Colors</option>
+                        <option value="Hitam">Black</option>
+                        <option value="Putih">White</option>
+                        <option value="Silver">Silver</option>
+                        <option value="Emas">Gold</option>
+                        <option value="Biru">Blue</option>
+                        <option value="Rose Gold">Rose Gold</option>
+                        <option value="Merah">Red</option>
+                        <option value="Hijau">Green</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-md font-medium text-gray-700 mb-2">Case Material:</label>
+                    <select id="filter-case-material" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50">
+                        <option value="">All Materials</option>
+                        <option value="Stainless Steel">Stainless Steel</option>
+                        <option value="Titanium">Titanium</option>
+                        <option value="Keramik">Ceramic</option>
+                        <option value="Emas">Gold</option>
+                        <option value="Plastik">Plastic</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-md font-medium text-gray-700 mb-2">Strap Type:</label>
+                    <select id="filter-strap-type" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50">
+                        <option value="">All Strap Types</option>
+                        <option value="Kulit">Leather</option>
+                        <option value="Rubber">Rubber</option>
+                        <option value="Stainless Steel">Stainless Steel</option>
+                        <option value="NATO">NATO</option>
+                        <option value="Mesh">Mesh</option>
+                        <option value="Silikon">Silicone</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-md font-medium text-gray-700 mb-2">Item Status:</label>
+                    <div class="flex items-center space-x-4">
+                        <input type="checkbox" id="filter-new" value="Baru" class="form-checkbox h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                        <label for="filter-new" class="text-gray-700">New</label>
+                        <input type="checkbox" id="filter-used" value="Bekas" class="form-checkbox h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                        <label for="filter-used" class="text-gray-700">Used</label>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="filter-discount" class="form-checkbox h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                        <label for="filter-discount" class="ml-2 text-gray-700">On Discount</label>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Product Listing Section -->
+        <section class="w-full lg:w-3/4">
+            <h2 class="text-3xl font-bold mb-8 text-indigo-800">All Watch Collections</h2>
+            <div id="product-list" class="product-grid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div id="product-detail-modal" class="modal-overlay">
+        <div class="modal-content w-full lg:w-3/4 xl:w-2/3">
+            <div class="flex justify-between items-center mb-6 border-b pb-4">
+                <h3 id="detail-product-name" class="text-3xl font-bold text-indigo-800"></h3>
+                <button class="text-gray-500 hover:text-gray-700 text-3xl" onclick="closeProductDetailModal()">
+                    &times;
+                </button>
+            </div>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <img id="detail-product-image" src="" alt="Product Image" class="w-full h-auto rounded-lg shadow-md object-cover mb-4">
+                    <p class="text-gray-600 text-sm italic">Image for illustration purposes only.</p>
+                </div>
+                <div class="md:w-1/2">
+                    <p class="text-xl font-semibold text-gray-700 mb-2">Brand: <span id="detail-product-brand" class="font-normal"></span></p>
+                    <p class="text-2xl font-bold text-red-600 mb-4" id="detail-product-price"></p>
+
+                    <div id="detail-description-content" class="bg-gray-50 p-4 rounded-lg mb-6 hidden">
+                        <h4 class="text-xl font-bold text-indigo-700 mb-3">Specification Details:</h4>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li><strong>Model/Series:</strong> <span id="desc-model"></span></li>
+                            <li><strong>Reference Number/SKU:</strong> <span id="desc-sku"></span></li>
+                            <li><strong>Gender:</strong> <span id="desc-gender"></span></li>
+                            <li><strong>Style:</strong> <span id="desc-style"></span></li>
+                            <li><strong>Movement Type:</strong> <span id="desc-movement"></span></li>
+                            <li><strong>Caliber/Module:</strong> <span id="desc-caliber"></span></li>
+                            <li><strong>Power Reserve:</strong> <span id="desc-power-reserve"></span></li>
+                            <li><strong>Frequency:</strong> <span id="desc-frequency"></span></li>
+                            <li><strong>Case Material:</strong> <span id="desc-case-material"></span></li>
+                            <li><strong>Case Diameter:</strong> <span id="desc-case-diameter"></span></li>
+                            <li><strong>Case Thickness:</strong> <span id="desc-case-thickness"></span></li>
+                            <li><strong>Case Shape:</strong> <span id="desc-case-shape"></span></li>
+                            <li><strong>Case Coating:</strong> <span id="desc-case-coating"></span></li>
+                            <li><strong>Crystal Material:</strong> <span id="desc-crystal"></span></li>
+                            <li><strong>Dial Color:</strong> <span id="desc-dial-color"></span></li>
+                            <li><strong>Indexes/Markers:</strong> <span id="desc-markers"></span></li>
+                            <li><strong>Lume:</strong> <span id="desc-lume"></span></li>
+                            <li><strong>Water Resistance:</strong> <span id="desc-water-resistance"></span></li>
+                            <li><strong>Special Functions:</strong> <span id="desc-functions"></span></li>
+                            <li><strong>Warranty:</strong> <span id="desc-warranty"></span></li>
+                            <li><strong>Watch Completeness:</strong> <span id="desc-completeness"></span></li>
+                        </ul>
+                    </div>
+
+                    <button id="toggle-description-btn" class="bg-indigo-500 text-white px-6 py-3 rounded-lg hover:bg-indigo-600 transition duration-300 mb-4 w-full">
+                        Description
+                    </button>
+                    <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition duration-300 w-full" onclick="openOrderFormForProduct(currentProduct.id)">
+                        Order Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Customer Comments Section -->
+            <div class="mt-8 pt-8 border-t border-gray-200" id="customer-comments-section">
+                <h4 class="text-2xl font-bold text-indigo-800 mb-4">Customer Reviews</h4>
+                <div id="comments-list" class="space-y-4 mb-6">
+                    <!-- Comments will be loaded here -->
+                    <p class="text-gray-500 text-center" id="no-comments-message">No reviews yet for this product.</p>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                    <h5 class="text-xl font-semibold text-gray-800 mb-4">Leave Your Review</h5>
+                    <p class="text-sm text-gray-600 mb-4">Only customers who have purchased this product can leave a review.</p>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Star Rating:</label>
+                        <div class="star-rating flex items-center">
+                            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars">&#9733;</label>
+                            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">&#9733;</label>
+                            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">&#9733;</label>
+                            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">&#9733;</label>
+                            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">&#9733;</label>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="commenter-name" class="block text-gray-700 text-sm font-bold mb-2">Your Name:</label>
+                        <input type="text" id="commenter-name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-indigo-500" placeholder="Your Name">
+                    </div>
+                    <div class="mb-4">
+                        <label for="comment-text" class="block text-gray-700 text-sm font-bold mb-2">Comment:</label>
+                        <textarea id="comment-text" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-indigo-500" placeholder="Write your review here..."></textarea>
+                    </div>
+                    <button id="submit-comment-btn" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition duration-300">
+                        Submit Review
+                    </button>
+                    <p id="comment-message" class="text-sm mt-2"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Form Modal -->
+    <div id="order-form-modal" class="modal-overlay">
+        <div class="modal-content w-full lg:w-1/2">
+            <div class="flex justify-between items-center mb-6 border-b pb-4">
+                <h3 class="text-3xl font-bold text-indigo-800">Watch Order Form</h3>
+                <button class="text-gray-500 hover:text-gray-700 text-3xl" onclick="closeOrderFormModal()">
+                    &times;
+                </button>
+            </div>
+            <div class="flex items-center mb-6 bg-gray-100 p-4 rounded-lg">
+                <img id="order-product-image" src="" alt="Product Image" class="w-20 h-20 rounded-md mr-4 object-cover">
+                <div>
+                    <p class="text-xl font-semibold" id="order-product-name"></p>
+                    <p class="text-lg text-red-600 font-bold" id="order-product-price"></p>
+                </div>
+            </div>
+
+            <form id="order-form">
+                <div class="mb-4">
+                    <label for="customer-name" class="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
+                    <input type="text" id="customer-name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-indigo-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="customer-address" class="block text-gray-700 text-sm font-bold mb-2">Full Address:</label>
+                    <textarea id="customer-address" rows="3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-indigo-500" required></textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="customer-phone" class="block text-gray-700 text-sm font-bold mb-2">Phone Number:</label>
+                    <input type="tel" id="customer-phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-indigo-500" required>
+                </div>
+                <div class="mb-4">
+                    <label for="customer-email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                    <input type="email" id="customer-email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-indigo-500" required>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Payment Method:</label>
+                    <div class="mt-2 space-y-2">
+                        <label class="inline-flex items-center">
+                            <input type="radio" class="form-radio text-indigo-600 h-5 w-5" name="payment-method" value="BCA" required>
+                            <span class="ml-2 text-gray-700">BCA</span>
+                        </label>
+                        <label class="inline-flex items-center ml-4">
+                            <input type="radio" class="form-radio text-indigo-600 h-5 w-5" name="payment-method" value="Mandiri">
+                            <span class="ml-2 text-gray-700">Mandiri</span>
+                        </label>
+                        <label class="inline-flex items-center ml-4">
+                            <input type="radio" class="form-radio text-indigo-600 h-5 w-5" name="payment-method" value="Gopay">
+                            <span class="ml-2 text-gray-700">Gopay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label for="order-notes" class="block text-gray-700 text-sm font-bold mb-2">Additional Notes (Optional):</label>
+                    <textarea id="order-notes" rows="2" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-indigo-500"></textarea>
+                </div>
+
+                <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition duration-300 w-full">
+                    Submit Order
+                </button>
+                <p id="order-message" class="text-sm mt-2 text-center"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-10 mt-12">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h4 class="text-xl font-bold mb-4">Classy Time</h4>
+                <p class="text-gray-400">Every Second, A Masterpiece.</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-4">Contact Us</h4>
+                <p class="text-gray-400"><i class="fas fa-envelope mr-2"></i>dyasvasi@gmail.com</p>
+                <p class="text-gray-400"><i class="fas fa-phone mr-2"></i>081216516134</p>
+                <p class="text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i>Wisma Lidah Kulon Blok F19</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-bold mb-4">Follow Us</h4>
+                <a href="https://www.instagram.com/adyasta_mw" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                    <i class="fab fa-instagram text-2xl mr-2"></i>@adyasta_mw
+                </a>
+                <p class="text-gray-400 mt-4">Copyright &copy; 2025 Classy Time. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+/* style.css */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc; /* Tailwind slate-50 */
+    color: #1e293b; /* Tailwind slate-800 */
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem; /* 24px */
+}
+
+/* Custom scrollbar for filter sidebar */
+.filter-sidebar {
+    max-height: calc(100vh - 100px); /* Adjust as needed */
+    overflow-y: auto;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #cbd5e1 #f1f5f9; /* thumb and track color */
+}
+
+.filter-sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.filter-sidebar::-webkit-scrollbar-track {
+    background: #f1f5f9; /* Tailwind slate-100 */
+    border-radius: 10px;
+}
+
+.filter-sidebar::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1; /* Tailwind slate-300 */
+    border-radius: 10px;
+    border: 2px solid #f1f5f9;
+}
+
+/* Modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+/* Star rating */
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 1.5rem;
+    color: #d1d5db; /* gray-300 */
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star-rating input[type="radio"]:checked ~ label {
+    color: #facc15; /* yellow-400 */
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #facc15;
+}
+
+.star-rating label.active {
+    color: #facc15;
+}
